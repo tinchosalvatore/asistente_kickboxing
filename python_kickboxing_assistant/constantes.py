@@ -8,20 +8,26 @@ Esto centraliza la configuración y facilita los ajustes.
 POTENCIA_JAB = 10
 POTENCIA_CROSS = 20
 POTENCIA_LOW_KICK = 35
+POTENCIA_HOOK = 25
+POTENCIA_UPPERCUT = 30
 
 # Calorías de Movimientos
 CALORIAS_JAB = 1.0
 CALORIAS_CROSS = 2.0
 CALORIAS_LOW_KICK = 5.0
+CALORIAS_HOOK = 3.0
+CALORIAS_UPPERCUT = 3.5
 
 # Tiempos de Entrenamiento
 DURACION_ROUND_SEGUNDOS = 180
-DURACION_DESCANSO_SEGUNDOS = 60
+DURACION_DESCANSO_SEGUNDOS = 5
 
 # Nombres de Movimientos
 JAB = "Jab"
 CROSS = "Cross"
 LOW_KICK = "LowKick"
+HOOK = "Hook"
+UPPERCUT = "Uppercut"
 
 # Eventos de Observer
 INICIO_ROUND = "INICIO_ROUND"

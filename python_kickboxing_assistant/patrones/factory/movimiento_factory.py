@@ -4,7 +4,9 @@ from python_kickboxing_assistant.entidades.movimiento import Movimiento
 from python_kickboxing_assistant.entidades.movimientos.jab import Jab
 from python_kickboxing_assistant.entidades.movimientos.cross import Cross
 from python_kickboxing_assistant.entidades.movimientos.low_kick import LowKick
-from python_kickboxing_assistant.constantes import JAB, CROSS, LOW_KICK
+from python_kickboxing_assistant.entidades.movimientos.hook import Hook
+from python_kickboxing_assistant.entidades.movimientos.uppercut import Uppercut
+from python_kickboxing_assistant.constantes import JAB, CROSS, LOW_KICK, HOOK, UPPERCUT
 
 class MovimientoFactory:
     """
@@ -15,6 +17,8 @@ class MovimientoFactory:
         JAB: Jab,
         CROSS: Cross,
         LOW_KICK: LowKick,
+        HOOK: Hook,
+        UPPERCUT: Uppercut,
     }
 
     @staticmethod
