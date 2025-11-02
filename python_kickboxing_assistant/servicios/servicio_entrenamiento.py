@@ -1,5 +1,6 @@
 from typing import Type
 import time
+from python_kickboxing_assistant.constantes import DURACION_ROUND_SEGUNDOS, DURACION_DESCANSO_SEGUNDOS, NUMERO_DE_ASALTOS
 from python_kickboxing_assistant.entidades.sesion_entrenamiento import SesionDeEntrenamiento
 from python_kickboxing_assistant.entidades.perfil_atleta import PerfilDeLuchador
 from python_kickboxing_assistant.patrones.strategy.evaluacion_strategy import EvaluacionStrategy
@@ -38,21 +39,15 @@ class ServicioEntrenamiento:
 
         return sesion
 
-    def ejecutar_sesion_en_vivo(self, sesion: SesionDeEntrenamiento, duracion_total_segundos: int, duracion_round: int = None, duracion_descanso: int = None):
+    def ejecutar_sesion_en_vivo(self, sesion: SesionDeEntrenamiento):
         """
         Ejecuta una sesión de entrenamiento en vivo con un Timer y un Coach.
-        La sesión durará duracion_total_segundos.
+        La duración total, de los rounds y descansos se obtiene desde el fichero de constantes.
         """
+        duracion_total_segundos = NUMERO_DE_ASALTOS * (DURACION_ROUND_SEGUNDOS + DURACION_DESCANSO_SEGUNDOS)
         print(f"Iniciando sesión de {sesion.tipo} para {sesion.atleta.nombre} durante {duracion_total_segundos} segundos...")
 
-        # Pasa las duraciones específicas si se proporcionan, de lo contrario usa los valores por defecto de TimerTask
-        timer_args = {}
-        if duracion_round is not None:
-            timer_args['duracion_round'] = duracion_round
-        if duracion_descanso is not None:
-            timer_args['duracion_descanso'] = duracion_descanso
-
-        timer = TimerTask(**timer_args)
+        timer = TimerTask(duracion_round=DURACION_ROUND_SEGUNDOS, duracion_descanso=DURACION_DESCANSO_SEGUNDOS)
         threads_to_manage = [timer]
 
         if sesion.tipo == "Sparring":
